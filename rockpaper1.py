@@ -14,7 +14,8 @@ tup_comp = [(1, 1), (1, 2), (1, 3), (2, 1), (2, 2), (2, 3), (3, 1), (3, 2), (3, 
 counter = 0
 score = 0
 
-while counter < 3:
+#3 chances to beat the machine
+while counter < 4:
 
 	pchoice = int(input(print("Enter your choice: 1 - Rock, 2 - Paper, 3 - Scissors")))
 	while pchoice > 3 or pchoice < 1:
@@ -22,14 +23,14 @@ while counter < 3:
 		pchoice = int(input(print("Enter your choice: 1 - Rock, 2 - Paper, 3 - Scissors")))
 	#Displays your choice
 	print("you chose", options[pchoice])
-
+	
 	comp_choice = random.randrange(1, 3)
 	print("processing")
 	time.sleep(2)
 	#Displays the computer's choice
 	print("computer chose", options[comp_choice])
 
-	result = (pchoice, comp_choice)
+	#result = (pchoice, comp_choice)
 
 	time.sleep(2)
 
