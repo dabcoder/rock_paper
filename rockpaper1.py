@@ -30,10 +30,7 @@ while counter < 4:
 	#Displays the computer's choice
 	print("computer chose", options[comp_choice])
 
-	#result = (pchoice, comp_choice)
-
 	time.sleep(2)
-
 
 	if result == tup_comp[0] or result == tup_comp[4] or result == tup_comp[8]:
 		print("it's a tie!")
@@ -48,4 +45,3 @@ while counter < 4:
 	counter += 1
 
 print("You beat the machine", score, " time(s)")
-
