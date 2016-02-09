@@ -1,6 +1,6 @@
 import random
 import time
-
+import random
 
 print("****************************************")
 print("Welcome to the rock-paper-scissors game!")
@@ -11,37 +11,54 @@ options = {1: 'Paper', 2: 'Rock', 3:'Scissors'}
 #and a tuple to list all the combinations
 tup_comp = [(1, 1), (1, 2), (1, 3), (2, 1), (2, 2), (2, 3), (3, 1), (3, 2), (3, 3)]
 
-counter = 0
-score = 0
-
-#3 chances to beat the machine
-while counter < 4:
-
-	pchoice = int(input(print("Enter your choice: 1 - Rock, 2 - Paper, 3 - Scissors")))
+#Store the player's choice
+def players_choice():
+	#Get the players choice
+	pchoice = int(input(print("Enter your choice:\n 1 - Rock\n 2 - Paper\n 3 - Scissors")))
 	while pchoice > 3 or pchoice < 1:
 		print("This is not a valid choice, try again")
-		pchoice = int(input(print("Enter your choice: 1 - Rock, 2 - Paper, 3 - Scissors")))
+		pchoice = int(input(print("Enter your choice:\n 1 - Rock\n 2 - Paper\n 3 - Scissors")))
+	#print("processing")
+	#time.sleep(2)
 	#Displays your choice
-	print("you chose", options[pchoice])
-	
+	print("you chose", options[pchoice], pchoice)
+	return pchoice
+
+def computers_choice():
+	#Computer chooses 
 	comp_choice = random.randrange(1, 3)
-	print("processing")
+	#print("processing")
 	time.sleep(2)
 	#Displays the computer's choice
-	print("computer chose", options[comp_choice])
+	print("computer chose", options[comp_choice], comp_choice)
+	return comp_choice
 
-	time.sleep(2)
-
+def compare():
+	print("comparing...")
+	result = (players_choice(), computers_choice())
+	#comparisons
+	print(result)
 	if result == tup_comp[0] or result == tup_comp[4] or result == tup_comp[8]:
 		print("it's a tie!")
-	elif result == tup_comp[1] or result == tup_comp[5] or result == tup_comp[7]:
+	elif result == tup_comp[1] or result == tup_comp[5] or result == tup_comp[6]:
 		print("you lose")
-	elif result == tup_comp[2] or result == tup_comp[3] or result == tup_comp[6]:
+	elif result == tup_comp[2] or result == tup_comp[3] or result == tup_comp[7]:
 		print("you win!")
-		score += 1
 	else:
-		print("something wrong happened...")
+		print("Something went wrong")
 
-	counter += 1
+def turns():
+	counter = 1
+	#I originally wanted to make 3 rounds but it doesn't seem to work
+	while counter < 4:
+		print("this is round", counter)
+		players_choice()
+		computers_choice()
+		#print("reaching the compare section")
+		compare()
+		#print("compare done")
+		counter += 1
+	exit()
 
-print("You beat the machine", score, " time(s)")
+#Execute the program. Could have written a main here
+turns()
