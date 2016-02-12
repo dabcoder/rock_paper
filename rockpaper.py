@@ -26,9 +26,9 @@ def players_choice():
 
 def computers_choice():
   #Computer chooses 
-  comp_choice = random.randrange(1, 3)
+  comp_choice = random.randrange(1, 4)
   #Displays the computer's choice
-  print("computer chose", options[comp_choice])
+  print("Computer chose", options[comp_choice])
   return comp_choice
 
 def compare(pchoice, comp_choice):
